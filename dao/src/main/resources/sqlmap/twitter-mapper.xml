@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.shijia.mapper.TwitterMapper">
+
+    <sql id="Base_Column_List_Insert">
+        title,bigimg,`desc`,extra,created,updated
+    </sql>
+
+    <select id="getAll" resultType="java.util.Map">
+        select * from Twitter
+    </select>
+
+
+    <insert id="insertTwitter" useGeneratedKeys="true" keyProperty="id" parameterType="com.shijia.entity.Twitter">
+        INSERT INTO Twitter(
+        <include refid="Base_Column_List_Insert"/>
+        )
+        VALUES (
+          #{title},
+          #{bigimg},
+          #{desc},
+          #{extra},
+          unix_timestamp(now()),
+          unix_timestamp(now()))
+    </insert>
+</mapper>
