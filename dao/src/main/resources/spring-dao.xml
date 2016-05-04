@@ -22,7 +22,8 @@
         <property name="statementExecutableSqlLogEnable" value="true" />
     </bean>
 
-    <context:component-scan base-package="com.shijia.*" />
+    <context:component-scan base-package="com.shijia.dao" />
+    <context:component-scan base-package="com.shijia.mapper" />
 
     <aop:aspectj-autoproxy/>
 
