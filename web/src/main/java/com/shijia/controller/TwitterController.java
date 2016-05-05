@@ -28,7 +28,7 @@ public class TwitterController {
     public ModelAndView index(){
         ModelAndView modelAndView = new ModelAndView();
         List<Twitter> list = twitterService.getAll();
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("index_new");
         modelAndView.addObject("list", list);
         return modelAndView;
     }
