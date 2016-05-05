@@ -29,7 +29,7 @@ public class TwitterController {
         ModelAndView modelAndView = new ModelAndView();
         List<Twitter> list = twitterService.getAll();
         modelAndView.setViewName("index");
-        modelAndView.addObject("title", "测试");
+        modelAndView.addObject("list", list);
         return modelAndView;
     }
 

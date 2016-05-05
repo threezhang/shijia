@@ -28,7 +28,8 @@ public class TwitterDaoTest extends BaseTest {
     @Test
     public void testInsert() {
         Twitter twitter = new Twitter();
-        twitter.setBigimg("http://img4q.duitang.com/uploads/people/201604/29/20160429164235_JGhzY.thumb.224_224_c.jpeg");
+        twitter.setBigimg("http://s16.mogucdn.com/p1/150710/17pnvc_ie2dizbvmjqwgzjugizdambqgiyde_960x1280.jpg_468x468.jpg");
+        twitter.setTitle("喜欢");
         twitter.setDesc("你喜欢抹茶吗");
         twitter.setExtra("test");
         int i = twitterDao.insertTwitter(twitter);
