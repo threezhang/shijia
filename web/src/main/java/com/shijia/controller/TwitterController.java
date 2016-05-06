@@ -1,5 +1,8 @@
 package com.shijia.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.shijia.entity.Twitter;
 import com.shijia.service.TwitterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +42,23 @@ public class TwitterController {
         model.addAttribute("user", "jiuru");
         return "index";
     }
+
+    @RequestMapping(value = "/json")
+    public String json(){
+        return "index_json";
+    }
+
+    @RequestMapping(value = {"/index/json"}, method = RequestMethod.GET, produces = {"application/json;charset=utf-8"})
+    public String indexJson() {
+        List<Twitter> list = twitterService.getAll();
+        JSONObject response = new JSONObject();
+        JSONObject status = new JSONObject();
+        response.put("result", JSONObject.toJSONString(list));
+        status.put("code", 1001);
+        status.put("msg", "OK");
+        response.put("status", status);
+        return JSONObject.toJSONString(response, SerializerFeature.BrowserCompatible, SerializerFeature.BrowserCompatible);
+    }
+
 
 }
